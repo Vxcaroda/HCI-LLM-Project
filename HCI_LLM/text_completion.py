@@ -48,8 +48,11 @@ def main():
         if prefix == "exit":
             break
         completions = trie.search(prefix)
-        print("Completions:", completions)
-        print(" ")                          #I added this to seperate outputs and make viewing easier 
+        # print("Completions:", completions)
+        for x in completions:
+            print(x)    
+        print()                    #I added this to seperate outputs and make viewing easier 
+        
 
 if __name__ == "__main__":
     main()
