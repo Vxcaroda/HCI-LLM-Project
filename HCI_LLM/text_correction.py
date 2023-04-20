@@ -48,7 +48,7 @@ def load_words_from_file(file_path):
 
 def main():
     trie = Trie()
-    words = load_words_from_file("HCI-LLM-Project\HCI_LLM\dictionary.txt")
+    words = load_words_from_file("HCI-LLM-Project\HCI_LLM\dictionary.txt") 
     for word in words:
         trie.insert(word)
 
