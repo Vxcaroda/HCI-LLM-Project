@@ -1,0 +1,92 @@
+Q1) write a python program that does auto text completion. do not use any packages that do not work on windows, and make it run in terminal for simplicity
+
+A1) Auto text completion can be a complex task, and building a sophisticated model from scratch is beyond the scope of this answer. However, I can provide 
+    a simple example using a prefix tree (Trie) data structure to demonstrate the basic idea. A Trie is a tree-like data structure that stores a dynamic 
+    set of strings, where each node in the tree represents a single character. This makes it a good fit for building a basic auto text completion system.
+    Here's a simple Python program that demonstrates auto text completion using a Trie:
+
+class TrieNode:
+    def __init__(self):
+        self.children = {}
+        self.is_end_of_word = False
+
+class Trie:
+    def __init__(self):
+        self.root = TrieNode()
+
+    def insert(self, word):
+        node = self.root
+        for char in word:
+            if char not in node.children:
+                node.children[char] = TrieNode()
+            node = node.children[char]
+        node.is_end_of_word = True
+
+    def search(self, prefix):
+        node = self.root
+        for char in prefix:
+            if char not in node.children:
+                return []
+            node = node.children[char]
+        return self._collect_all_words(node, prefix)
+
+    def _collect_all_words(self, node, prefix):
+        words = []
+        if node.is_end_of_word:
+            words.append(prefix)
+        for char, child in node.children.items():
+            words += self._collect_all_words(child, prefix + char)
+        return words
+
+def main():
+    trie = Trie()
+    words = ["apple", "app", "banana", "bat", "batman", "car", "carbon", "cargo"]
+    for word in words:
+        trie.insert(word)
+
+    while True:
+        prefix = input("Enter prefix: ")
+        if prefix == "exit":
+            break
+        completions = trie.search(prefix)
+        print("Completions:", completions)
+
+if __name__ == "__main__":
+    main()
+
+    This program creates a simple Trie and inserts some example words. The user can then input a prefix, and the program will return a list of possible completions. 
+    To exit the program, type "exit". Note that this example is case-sensitive and doesn't handle special characters or punctuation. You can customize the code to 
+    improve its functionality and handle more complex scenarios.
+
+Q2) where can I find a useful collection of words to use. in other words I want a large dictionary of words to use in this program
+
+A2) A popular source for a large collection of words is the word list from the SCOWL (Spell Checker Oriented Word Lists) project, which is used by various open-source 
+    spell checking libraries. The largest word list from this project is available for download from the following link:
+    wordlist.7z (15.8 MB)
+    After downloading the file, you will need to extract its content, which is a plain text file named wordlist.txt. Each line in the file represents a single word. 
+    To load this list of words into your Python program, you can use the following function:
+
+def load_words_from_file(file_path):
+    with open(file_path, 'r', encoding='utf-8') as file:
+        words = [line.strip() for line in file]
+    return words
+
+To use this function in your main program, simply call it and pass the file path of your wordlist.txt file:
+
+def main():
+    trie = Trie()
+    words = load_words_from_file("wordlist.txt")
+    for word in words:
+        trie.insert(word)
+
+    while True:
+        prefix = input("Enter prefix: ")
+        if prefix == "exit":
+            break
+        completions = trie.search(prefix)
+        print("Completions:", completions)
+
+if __name__ == "__main__":
+    main()
+
+This will load the words from the file and insert them into your Trie, providing a much larger dictionary of words for your auto text completion program.
