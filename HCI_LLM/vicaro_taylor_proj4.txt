@@ -167,3 +167,221 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+!!!!At this point I realized that the task is to take in a sentence as an input and output the predicted next word in the sentence. so I will be trying to rewrite the 
+text completion program to achieve this goal using my remaining 8 Questions. 
+
+Q3) write a python program that takes a sentence as input, a string of words, and should predict the next word. do not use any packages that do not work on windows, 
+and make it run in terminal for simplicity
+
+A3) Creating a sophisticated word prediction model would typically require a large language model and a significant amount of training data, like GPT-based models. 
+However, I can provide you with a simple program that uses n-grams and basic Python libraries. This program will be limited in its prediction capabilities and 
+won't be as accurate as more advanced models.
+
+Here's a Python script that takes a sentence as input and predicts the next word based on word frequency using bigrams (pairs of consecutive words):
+
+
+import re
+from collections import defaultdict, Counter
+
+# Sample text for training the model
+training_text = """
+This is a sample training text. You can replace this text with a larger dataset for better results.
+The more text you provide, the more accurate the predictions will be.
+"""
+
+def tokenize(text):
+    words = re.findall(r'\b\w+\b', text.lower())
+    return words
+
+def train_bigrams(words):
+    bigrams = defaultdict(Counter)
+    for i in range(len(words) - 1):
+        bigrams[words[i]][words[i + 1]] += 1
+    return bigrams
+
+def predict_next_word(bigrams, current_word):
+    if not bigrams[current_word]:
+        return None
+    most_common_word = bigrams[current_word].most_common(1)[0][0]
+    return most_common_word
+
+def main():
+    words = tokenize(training_text)
+    bigrams = train_bigrams(words)
+
+    input_sentence = input("Enter a sentence: ")
+    input_words = tokenize(input_sentence)
+    last_word = input_words[-1]
+
+    next_word = predict_next_word(bigrams, last_word)
+    if next_word:
+        print("Predicted next word:", next_word)
+    else:
+        print("Sorry, unable to predict the next word.")
+
+if __name__ == "__main__":
+    main()
+
+This script uses a small sample text for training, so the predictions may not be very accurate. You can replace the training_text variable with a larger 
+dataset to improve prediction quality. To run the script, save it as a Python file (e.g., word_predictor.py) and execute it in the terminal with python word_predictor.py.
+
+//So i downloaded a portion of text8, which is a A preprocessed and cleaned version of the first 100 MB of English Wikipedia text from kaggle.com and put it in a taxt file and used that to train the model. 
+// I also grabbed news articles text from kaggle and used that as bonus training data.  
+
+Q4) how do i make the program take in a txt file as the training text 
+You can modify the program to accept a text file as input for the training text. Here's the updated version of the script that reads a text file and uses its content as the training text:
+
+import re
+from collections import defaultdict, Counter
+
+def read_training_text(filename):
+    with open(filename, 'r', encoding='utf-8') as file:
+        return file.read()
+
+def tokenize(text):
+    words = re.findall(r'\b\w+\b', text.lower())
+    return words
+
+def train_bigrams(words):
+    bigrams = defaultdict(Counter)
+    for i in range(len(words) - 1):
+        bigrams[words[i]][words[i + 1]] += 1
+    return bigrams
+
+def predict_next_word(bigrams, current_word):
+    if not bigrams[current_word]:
+        return None
+    most_common_word = bigrams[current_word].most_common(1)[0][0]
+    return most_common_word
+
+def main():
+    filename = input("Enter the training text filename: ")
+    training_text = read_training_text(filename)
+
+    words = tokenize(training_text)
+    bigrams = train_bigrams(words)
+
+    input_sentence = input("Enter a sentence: ")
+    input_words = tokenize(input_sentence)
+    last_word = input_words[-1]
+
+    next_word = predict_next_word(bigrams, last_word)
+    if next_word:
+        print("Predicted next word:", next_word)
+    else:
+        print("Sorry, unable to predict the next word.")
+
+if __name__ == "__main__":
+    main()
+
+Now, the program asks the user to input the filename of the training text. Make sure to specify the correct file path if the text file is located in a different directory.
+The read_training_text function reads the content of the specified text file and returns it as a string. The rest of the script remains the same. Save the updated script 
+as a Python file (e.g., word_predictor_file_input.py) and execute it in the terminal with python word_predictor_file_input.py.
+Q5) it should just take a relative file path to the txt file training data
+A5) You can simplify the script to accept a relative file path for the training text. In this case, the program won't ask the user for input, and you need to specify the file path directly in the code. Here's the updated version of the script:
+
+python
+Copy code
+import re
+from collections import defaultdict, Counter
+
+# Specify the relative path to the training text file
+training_text_file = 'your_training_text.txt'
+
+def read_training_text(filename):
+    with open(filename, 'r', encoding='utf-8') as file:
+        return file.read()
+
+def tokenize(text):
+    words = re.findall(r'\b\w+\b', text.lower())
+    return words
+
+def train_bigrams(words):
+    bigrams = defaultdict(Counter)
+    for i in range(len(words) - 1):
+        bigrams[words[i]][words[i + 1]] += 1
+    return bigrams
+
+def predict_next_word(bigrams, current_word):
+    if not bigrams[current_word]:
+        return None
+    most_common_word = bigrams[current_word].most_common(1)[0][0]
+    return most_common_word
+
+def main():
+    training_text = read_training_text(training_text_file)
+
+    words = tokenize(training_text)
+    bigrams = train_bigrams(words)
+
+    input_sentence = input("Enter a sentence: ")
+    input_words = tokenize(input_sentence)
+    last_word = input_words[-1]
+
+    next_word = predict_next_word(bigrams, last_word)
+    if next_word:
+        print("Predicted next word:", next_word)
+    else:
+        print("Sorry, unable to predict the next word.")
+
+if __name__ == "__main__":
+    main()
+
+Replace 'your_training_text.txt' with the relative path to your training text file. Make sure the specified path is correct, or you'll encounter a file not found error.
+ Save the updated script as a Python file (e.g., word_predictor_relative_path.py) and execute it in the terminal with python word_predictor_relative_path.py.
+
+Q6) take my code and make it run in a loop so it keeps taking sentences until the user types 'exit'
+    *** Then I pasted in the above code and it generated the following:
+
+A6) Sure, here's the modified code that runs in a loop until the user types "exit":
+
+import re
+from collections import defaultdict, Counter
+
+def read_training_text(filename):
+    with open(filename, 'r', encoding='utf-8') as file:
+        return file.read()
+
+def tokenize(text):
+    words = re.findall(r'\b\w+\b', text.lower())
+    return words
+
+def train_bigrams(words):
+    bigrams = defaultdict(Counter)
+    for i in range(len(words) - 1):
+        bigrams[words[i]][words[i + 1]] += 1
+    return bigrams
+
+def predict_next_word(bigrams, current_word):
+    if not bigrams[current_word]:
+        return None
+    most_common_word = bigrams[current_word].most_common(1)[0][0]
+    return most_common_word
+
+def main():
+    filename = "HCI-LLM-Project\HCI_LLM/text8.txt"
+    training_text = read_training_text(filename)
+
+    words = tokenize(training_text)
+    bigrams = train_bigrams(words)
+
+    while True:
+        input_sentence = input("Enter a sentence (type 'exit' to quit): ")
+        if input_sentence.lower() == 'exit':
+            break
+        input_words = tokenize(input_sentence)
+        last_word = input_words[-1]
+
+        next_word = predict_next_word(bigrams, last_word)
+        if next_word:
+            print("Predicted next word:", next_word)
+        else:
+            print("Sorry, unable to predict the next word.")
+
+if __name__ == "__main__":
+    main()
+
+
+This modified code uses a while loop to repeatedly prompt the user to enter a sentence until the user types "exit". Once the user enters a sentence, the code tokenizes 
+the sentence and predicts the next word using the predict_next_word() function. The predicted next word is then printed to the console.

@@ -1,0 +1,100 @@
+Evaluate whether the LLM generated usable code as follows: 
+(a) 10 words to test the word correction and
+
+1) word: scrapp
+Corrections: ['scrap', 'scrape', 'scrappy', 'scraps', 'scrapy', 'cramp', 'crap', 'crape', 'crappo', 'crappy', 'craps', 'crapy', 'frapp', 'sarape', 
+'scalp', 'scap', 'scape', 'scarp', 'scaup', 'schappe', 'scrab', 'scrabe', 'scrae', 'scrag', 'scrags', 'scramb', 'scrams', 'scran', 'scrank', "scrap's", 
+'scraped', 'scraper', 'scrapes', 'scrapie', 'scrapped', 'scrapper', 'scrappet', 'scrapple', 'scrat', 'scrath', 'scraw', 'scrawk', 'scrawl', 'scrawm', 
+'scray', 'scraye', 'scraze', 'scrimp', 'scrip', 'scrips', 'scroop', 'scrump', 'serape', 'seraph', 'shrap', 'shrape', 'stramp', 'strap', 'straps']
+
+2)word: bridge
+Corrections: ['Bridge', 'abridge', 'aridge', 'bridged', 'bridle', 'fridge', 'ridge', 'Ariege', 'Bride', 'Bridger', 'Bridges', 'Bridget', 'Bridie', 
+'Elbridge', 'Kriege', 'Midge', 'Mobridge', 'Oxbridge', 'Pride', 'Uxbridge', 'abridged', 'abridger', 'abridges', 'arridge', 'badge', 'beige', 'beride', 
+'bide', 'bilge', 'binge', 'bludge', 'bodge', 'boride', 'brainge', 'brede', 'bribe', 'bribee', 'brid', 'bridal', 'bridale', 'brides', 'bridled', 'bridler',
+'bridles', 'brieve', 'brigs', 'brigue', 'brike', 'brimse', 'brince', 'bringed', 'bringer', 'brings', 'brinie', 'brique', 'brise', 'brite', 'brodee',
+'cradge', 'cringe', 'dradge', 'dredge', 'drudge', 'fidge', 'flidge', 'fridges', 'fringe', 'gride', 'griege', 'grudge', 'nidge', 'rebridge', 'ride',
+'ridged', 'ridgel', 'ridger', 'ridges', 'ridgy', 'rudge', 'smidge', 'swidge', 'triage', 'trudge', 'upridge', 'wride']
+
+3) Word: octog
+Corrections: ['octo-', 'Acton', 'Actor', 'Doctor', 'Ector', 'Noctor', 'actg', 'actos', 'clog', 'cog', 'ctg', 'ecto-', 'oct-', 'octa-', 'octad', 'octal', 
+'octan', 'octet', 'octic', 'octoad', 'octode', 'octoic', 'octoid', 'octoon', 'octopi', 'octose', 'octoyl', 'octroi', 'octroy', 'octuor', 'octyl', 'onto', 
+'onto-', 'opto-', 'oto-', 'ottos', 'scog', 'scrog', 'stog', 'tog']
+
+4) Word: spense
+Corrections: ['Spence', 'sence', 'spece', 'speece', 'spences', 'spencie', 'spency', 'Cence', 'Pence', 'Spencer', 'Spense', 'ascence', 'dispence', 'egence',
+ 'ence', 'escence', 'espece', 'essence', 'faence', 'fence', 'hence', 'idence', 'pencel', 'pencey', 'penche', 'pense', 'pnce', 'punce', 'sapience', 'saxpence', 
+ 'scance', 'scene', 'science', 'sconce', 'seance', 'seenie', 'semence', 'sene', 'sense', 'seqence', 'silence', 'since', 'sixpence', 'skance', 'space', 'spancel', 
+ 'spane', 'speave', 'spec.', 'specced', 'specie', 'speck', 'specs', 'spect', 'speech', 'speise', 'spencers', 'spend', 'spends', 'spenses', 'spent', 'spere', 'sperse', 
+ 'spetch', 'spete', 'sphene', 'spice', 'spinae', 'spine', 'splice', 'sponge', 'sprenge', 'spruce', 'spunch', 'spunge', 'stance', 'stench', 'thence', 'whence']
+
+5)Word: succul
+Corrections: ['succub', 'succula', 'succus', 'buccal', 'buccula', 'saccule', 'sacculi', 'saccus', 'scaul', 'succah', 'succes', 'succi', 'succin', 'succor',
+ 'succour', 'succous', 'succuba', 'succube', 'succubi', 'succumb', 'succuss', 'sulcal', 'sulcus', 'sumbul', 'suncup', 'surculi']
+
+6)word: gegraph
+Corrections: ['regraph', 'Xograph', 'digraph', 'geerah', 'geography', 'gerah', 'graph', 'oograph', 'seraph', 'teraph']
+
+7)word: revisn
+Corrections: ['revise', 'Bevin', 'Bevis', 'Devin', 'Kevin', 'Levin', 'Levis', 'Levison', 'Nevin', 'Nevis', 'Previn', 'Tevis', 'Treviso', 'brevis',
+ 'cevian', 'crevis', 'devise', 'previse', 'ravin', 'ravish', 'ravison', 'regian', 'region', 'reign', 'reist', 'rekiss', 'relish', 'relist', 'remise',
+  'remiss', 'renin', 'renish', 'repin', 'rerise', 'rerisen', 'resign', 'resin', 'resist', 'retin', 'revest', 'revie', 'review', 'revile', 'revisal', 
+  'revised', 'revisee', 'reviser', 'revises', 'revising', 'revision', 'revisit', 'revisor', 'revive', 'revs', 'revuist', 'rewin', 'rewish', 'teviss', 'trevis']
+
+8)word: brisetl
+Corrections: ['biset', 'brinsell', 'brise', 'brises', 'brisket', 'briskets', 'brist', 'bristle', 'bristly']
+
+9)word: veraas
+Corrections: ['Fernas', 'Gervas', 'Hermas', 'Meras', 'Merras', 'Pernas', 'Persas', 'Terzas', 'Vergas', 'Verras', 'ceras', 'cerias', 'derats', 'derays', 
+'dermas', "era's", 'ferias', 'gerahs', 'heraus', 'seracs', 'serais', 'terais', 'teras', 'terass', 'terras', 'varas', 'varkas', 'varnas', 'veals', 'veenas', 
+'vegans', 'vegas', 'velars', 'verandas', 'veray', "verb's", 'verbal', 'verbals', 'verbs', 'verges', 'verglas', 'veritas', 'vermis', 'verray', 'vers', 'versa', 
+'versal', 'verses', 'versos', 'versts', 'versus', 'verts', 'vertus', 'verus', 'verves', 'virgas', 'yerbas']
+
+10) word: bullt
+Corrections: ['built', 'bull-', 'bull.', 'bulla', 'bullet', 'bullit', 'bulls', 'bult', 'Ault', 'Bull', 'Bully', 'Cull', 'Cully', 'Dulat', 'Dulla', 'Hull',
+'Kulla', 'Lull', 'Lulli', 'Lully', 'Mull', 'Sulla', 'Sully', 'Tull', 'Tulle', 'Tully', 'Vullo', 'Zullo', 'aillt', 'balat', 'ballat', 'ballet', 'balli', 
+'ballo', 'ballot', 'balls', 'balut', 'belat', 'belli', 'belly', 'belt', 'billa', 'billet', 'billot', 'blat', 'blet', 'blot', 'bolls', 'bolly', 'boulle', 
+'brulot', 'bual', 'buat', 'budlet', 'bught', 'bugle', 'buglet', 'buhls', 'build', 'buist', 'bul.', 'bulak', 'bulb', 'bulblet', 'bulbs', 'bulby', 'bulgy',
+'bulk', 'bulks', 'bulky', 'bullae', 'bullan', 'bullate', 'bullbat', 'bulled', 'bullets', 'bullety', 'bullnut', 'bulse', 'bundt', 'bunt', 'buret', 'burlet', 
+'burls', 'burly', 'burnt', 'burst', 'butat', 'butle', 'butut', 'culet', 'culla', 'cullet', 'culls', 'culot', 'cult', 'dull', 'dulls', 'dully', 'dult', 'full', 
+'fulls', 'fully', 'guilt', 'gull', 'gullet', 'gulls', 'gully', 'gult', 'hullo', 'hulls', 'lulls', 'mulct', 'mulet', 'mulla', 'mullet', 'mulls', 'mult', 'null',
+'nullo', 'nulls', 'pull', 'pull-', 'pullet', 'pulli', 'pulls', 'quelt', 'quilt', 'rull', 'sull', 'tellt', 'ult', 'wull']
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+(b) 5 short and 5 long sentences to see if the text completion works. 
+Modify the LLM-generated code as needed to ensure it completes the task.
+
+    Short
+1)Sentence:he was running from
+prediction: 'the'
+
+2)Sentence:I love to eat
+prediction: 'Sorry, unable to predict the next word.'
+
+3)Sentence:she is very
+prediction: 'notion'
+
+4)Sentence:he likes to play
+prediction: 'with'
+
+5)Sentence:the cat is 
+prediction: 'a'
+
+    Long
+1)Sentence: The sun was shining brightly in the sky, and the birds were chirping in the 
+prediction: 'first'
+ 
+2)Sentence: I went to the store to buy some groceries, and I ended up buying more than I 
+prediction: 'have'
+ 
+3)Sentence: She had a big smile on her face, and I knew that she was happy to see 
+prediction: 'also'
+
+4)Sentence: He was running late for his appointment, so he had to hurry to 
+prediction: 'the'
+
+5)Sentence: The book that I am reading is really interesting, and I can't wait to find out what 
+prediction: 'they'
+
+
+
