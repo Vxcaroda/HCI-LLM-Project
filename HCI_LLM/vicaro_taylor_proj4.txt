@@ -98,7 +98,7 @@ This will load the words from the file and insert them into your Trie, providing
 Q3) great. everything is working. next, write a python program that does auto word correction. do not use any packages that do not work on windows, 
     and make it run in terminal for simplicity. it should be a brand new file, not integrated in the last program. 
 
-A2) Here's a simple Python program that demonstrates auto text correction using a Trie and the Levenshtein distance to find the best corrections:
+A3) Here's a simple Python program that demonstrates auto text correction using a Trie and the Levenshtein distance to find the best corrections:
 
 class TrieNode:
     def __init__(self):
@@ -171,10 +171,10 @@ if __name__ == "__main__":
 !!!!At this point I realized that the task is to take in a sentence as an input and output the predicted next word in the sentence. so I will be trying to rewrite the 
 text completion program to achieve this goal using my remaining 8 Questions. 
 
-Q3) write a python program that takes a sentence as input, a string of words, and should predict the next word. do not use any packages that do not work on windows, 
+Q4) write a python program that takes a sentence as input, a string of words, and should predict the next word. do not use any packages that do not work on windows, 
 and make it run in terminal for simplicity
 
-A3) Creating a sophisticated word prediction model would typically require a large language model and a significant amount of training data, like GPT-based models. 
+A4) Creating a sophisticated word prediction model would typically require a large language model and a significant amount of training data, like GPT-based models. 
 However, I can provide you with a simple program that uses n-grams and basic Python libraries. This program will be limited in its prediction capabilities and 
 won't be as accurate as more advanced models.
 
@@ -229,8 +229,9 @@ dataset to improve prediction quality. To run the script, save it as a Python fi
 //So i downloaded a portion of text8, which is a A preprocessed and cleaned version of the first 100 MB of English Wikipedia text from kaggle.com and put it in a taxt file and used that to train the model. 
 // I also grabbed news articles text from kaggle and used that as bonus training data.  
 
-Q4) how do i make the program take in a txt file as the training text 
-You can modify the program to accept a text file as input for the training text. Here's the updated version of the script that reads a text file and uses its content as the training text:
+Q5) how do i make the program take in a txt file as the training text 
+
+A5) You can modify the program to accept a text file as input for the training text. Here's the updated version of the script that reads a text file and uses its content as the training text:
 
 import re
 from collections import defaultdict, Counter
@@ -278,8 +279,10 @@ if __name__ == "__main__":
 Now, the program asks the user to input the filename of the training text. Make sure to specify the correct file path if the text file is located in a different directory.
 The read_training_text function reads the content of the specified text file and returns it as a string. The rest of the script remains the same. Save the updated script 
 as a Python file (e.g., word_predictor_file_input.py) and execute it in the terminal with python word_predictor_file_input.py.
-Q5) it should just take a relative file path to the txt file training data
-A5) You can simplify the script to accept a relative file path for the training text. In this case, the program won't ask the user for input, and you need to specify the file path directly in the code. Here's the updated version of the script:
+
+Q6) it should just take a relative file path to the txt file training data
+
+A6) You can simplify the script to accept a relative file path for the training text. In this case, the program won't ask the user for input, and you need to specify the file path directly in the code. Here's the updated version of the script:
 
 python
 Copy code
@@ -331,10 +334,10 @@ if __name__ == "__main__":
 Replace 'your_training_text.txt' with the relative path to your training text file. Make sure the specified path is correct, or you'll encounter a file not found error.
  Save the updated script as a Python file (e.g., word_predictor_relative_path.py) and execute it in the terminal with python word_predictor_relative_path.py.
 
-Q6) take my code and make it run in a loop so it keeps taking sentences until the user types 'exit'
+Q7) take my code and make it run in a loop so it keeps taking sentences until the user types 'exit'
     *** Then I pasted in the above code and it generated the following:
 
-A6) Sure, here's the modified code that runs in a loop until the user types "exit":
+A7) Sure, here's the modified code that runs in a loop until the user types "exit":
 
 import re
 from collections import defaultdict, Counter
